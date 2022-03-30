@@ -7,6 +7,7 @@ class Game:
         pygame.init()
         self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
         self.clock = pygame.time.Clock()
+        self.title = pygame.display.set_caption("Advanced Programming Project - 2022")
 
     def run(self):
         while True:
