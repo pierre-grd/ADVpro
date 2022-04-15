@@ -1,5 +1,6 @@
 import pygame, sys
 from settings import *
+from Methods import *
 import os
 
 
@@ -38,18 +39,10 @@ class Game:
             pygame.draw.rect(self.screen, "blue", self.island_blue)
 
             # write attack point on the screen
-            self.attack_text_red = self.health_font.render(
-                "Attack point: " + str(self.attack_point_red), 1, "white")
-            self.attack_text_blue = self.health_font.render(
-                "Attack point: " + str(self.attack_point_red), 1, "white")
-            self.screen.blit(self.attack_text_red, (500, 175))
-            self.screen.blit(self.attack_text_blue, (100, 75))
+            draw_attack_point(self.screen, self.attack_point_font, self.attack_point_red, self.attack_point_blue)
 
-            # write health point on the screen
-            self.health_text_red = self.health_font.render("Health: " + str(self.health_red), 1, "green")
-            self.health_text_blue = self.health_font.render("Health: " + str(self.health_blue), 1, "green")
-            self.screen.blit(self.health_text_red, (500, 500))
-            self.screen.blit(self.health_text_blue, (100, 400))
+            # call 'draw_health_point' function
+            draw_health_point(self.screen, self.health_font, self.health_red, self.health_blue)
 
             pygame.display.update()
             self.clock.tick(FPS)
