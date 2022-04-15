@@ -16,8 +16,14 @@ class Game:
         self.attack_point_box_red = pygame.Rect(500, 150, ATTACK_POINT_BOX_WIDTH, ATTACK_POINT_BOX_HEIGHT)
         self.attack_point_box_blue = pygame.Rect(100, 50, ATTACK_POINT_BOX_WIDTH, ATTACK_POINT_BOX_HEIGHT)
 
-        self.health_point_box_red = pygame.Rect(500, 450, HEALTH_POINT_BOX_WIDTH, HEALTH_POINT_BOX_HEIGHT)
-        self.health_point_box_blue = pygame.Rect(100, 350, HEALTH_POINT_BOX_WIDTH, HEALTH_POINT_BOX_HEIGHT)
+        self.health_font = pygame.font.SysFont(TEXT_FONT, HEALTH_TEXT_SIZE)
+        self.health_red = 200
+        self.health_blue = 200
+
+        self.attack_point_font = pygame.font.SysFont(TEXT_FONT, ATTACK_TEXT_SIZE)
+        self.attack_point_red = 5
+        self.attack_point_blue = 5
+
 
     def run(self):
         while True:
@@ -28,14 +34,23 @@ class Game:
 
             self.screen.fill("black")
             # draw rectangle for the islands
-            pygame.draw.rect(self.screen, "white", self.island_red)
-            pygame.draw.rect(self.screen, "white", self.island_blue)
-            # draw rectangle for the points of attack
-            pygame.draw.rect(self.screen, "red", self.attack_point_box_red)
-            pygame.draw.rect(self.screen, "red", self.attack_point_box_blue)
-            # draw rectangle for the points of health
-            pygame.draw.rect(self.screen, "red", self.health_point_box_red)
-            pygame.draw.rect(self.screen, "red", self.health_point_box_blue)
+            pygame.draw.rect(self.screen, "red", self.island_red)
+            pygame.draw.rect(self.screen, "blue", self.island_blue)
+
+            # write attack point on the screen
+            self.attack_text_red = self.health_font.render(
+                "Attack point: " + str(self.attack_point_red), 1, "white")
+            self.attack_text_blue = self.health_font.render(
+                "Attack point: " + str(self.attack_point_red), 1, "white")
+            self.screen.blit(self.attack_text_red, (500, 175))
+            self.screen.blit(self.attack_text_blue, (100, 75))
+
+            # write health point on the screen
+            self.health_text_red = self.health_font.render("Health: " + str(self.health_red), 1, "green")
+            self.health_text_blue = self.health_font.render("Health: " + str(self.health_blue), 1, "green")
+            self.screen.blit(self.health_text_red, (500, 500))
+            self.screen.blit(self.health_text_blue, (100, 400))
+
             pygame.display.update()
             self.clock.tick(FPS)
 
