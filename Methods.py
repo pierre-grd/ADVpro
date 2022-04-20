@@ -36,21 +36,20 @@ def draw_defense_point(screen, defense_point_red, defense_point_blue):
 def points(defense_point_red, defense_point_blue, attack_point_red, attack_point_blue,
            health_point_red, health_point_blue):
     for event in pygame.event.get():
-
         if event.type == pygame.KEYDOWN:
-
             if event.key == pygame.K_s:
                 defense_point_blue += 2
-                #Pour tester si l'input est prti en compte
+                # Pour tester si l'input est prit en compte
                 print("s")
             elif event.key == pygame.K_DOWN:
                 defense_point_red += 2
             elif event.key == pygame.K_UP:
                 attack_point_red += 2
+                print("kup")
             elif event.key == pygame.K_w:
                 attack_point_blue += 2
             elif event.key == pygame.K_a:
-                health_point_blue += -attack_point_red
+                health_point_blue += -1
+                print("a")
             elif event.key == pygame.K_LEFT:
                 health_point_red += -attack_point_blue
-

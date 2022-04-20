@@ -46,12 +46,13 @@ class Game:
             draw_defense_point(self.screen, self.defense_point_red, self.defense_point_blue)
 
             # call 'draw_health_point' function
-            draw_health_point(self.screen, self.health_red, self.health_blue)
+            draw_health_point(self.screen, HEALTH_RED, HEALTH_BLUE)
 
             points(self.defense_point_red, self.defense_point_blue, self.attack_point_red, self.attack_point_blue,
-                   self.health_red, self.health_blue)
+                   HEALTH_RED, HEALTH_BLUE)
 
             pygame.display.update()
+
             self.clock.tick(FPS)
 
 
