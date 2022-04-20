@@ -47,7 +47,7 @@ def points(defense_point_red, defense_point_blue, attack_point_red, attack_point
                 attack_point_red += 2
                 print("kup")
             elif event.key == pygame.K_w:
-                attack_point_blue += 2
+                attack_point_blue += -1
             elif event.key == pygame.K_a:
                 health_point_blue += -1
                 print("a")

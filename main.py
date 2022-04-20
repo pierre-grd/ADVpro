@@ -26,7 +26,6 @@ class Game:
         self.defense_point_red = DEFENSE_POINT_RED
         self.defense_point_blue = DEFENSE_POINT_BLUE
 
-
     def run(self):
         while True:
             for event in pygame.event.get():
@@ -48,6 +47,7 @@ class Game:
             # call 'draw_health_point' function
             draw_health_point(self.screen, HEALTH_RED, HEALTH_BLUE)
 
+            # observe events and acts accordingly(still in crashtest)
             points(self.defense_point_red, self.defense_point_blue, self.attack_point_red, self.attack_point_blue,
                    HEALTH_RED, HEALTH_BLUE)
 
