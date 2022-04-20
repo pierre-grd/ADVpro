@@ -17,14 +17,14 @@ class Game:
         self.attack_point_box_red = pygame.Rect(500, 150, ATTACK_POINT_BOX_WIDTH, ATTACK_POINT_BOX_HEIGHT)
         self.attack_point_box_blue = pygame.Rect(100, 50, ATTACK_POINT_BOX_WIDTH, ATTACK_POINT_BOX_HEIGHT)
 
-        self.health_red = 200
-        self.health_blue = 200
+        self.health_red = HEALTH_RED
+        self.health_blue = HEALTH_BLUE
 
-        self.attack_point_red = 5
-        self.attack_point_blue = 5
+        self.attack_point_red = ATTACK_POINT_RED
+        self.attack_point_blue = ATTACK_POINT_BLUE
 
-        self.defense_point_red = 5
-        self.defense_point_blue = 5
+        self.defense_point_red = DEFENSE_POINT_RED
+        self.defense_point_blue = DEFENSE_POINT_BLUE
 
 
     def run(self):
@@ -47,6 +47,9 @@ class Game:
 
             # call 'draw_health_point' function
             draw_health_point(self.screen, self.health_red, self.health_blue)
+
+            points(self.defense_point_red, self.defense_point_blue, self.attack_point_red, self.attack_point_blue,
+                   self.health_red, self.health_blue)
 
             pygame.display.update()
             self.clock.tick(FPS)

@@ -1,6 +1,7 @@
 import pygame, sys
 from settings import *
 
+
 def draw_health_point(screen, health_red, health_blue):
     # write health point on the screen
     health_font = pygame.font.SysFont(TEXT_FONT, HEALTH_TEXT_SIZE)
@@ -32,4 +33,24 @@ def draw_defense_point(screen, defense_point_red, defense_point_blue):
     screen.blit(defense_text_blue, (100, 55))
 
 
+def points(defense_point_red, defense_point_blue, attack_point_red, attack_point_blue,
+           health_point_red, health_point_blue):
+    for event in pygame.event.get():
+
+        if event.type == pygame.KEYDOWN:
+
+            if event.key == pygame.K_s:
+                defense_point_blue += 2
+                #Pour tester si l'input est prti en compte
+                print("s")
+            elif event.key == pygame.K_DOWN:
+                defense_point_red += 2
+            elif event.key == pygame.K_UP:
+                attack_point_red += 2
+            elif event.key == pygame.K_w:
+                attack_point_blue += 2
+            elif event.key == pygame.K_a:
+                health_point_blue += -attack_point_red
+            elif event.key == pygame.K_LEFT:
+                health_point_red += -attack_point_blue
 
