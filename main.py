@@ -23,6 +23,9 @@ class Game:
         self.attack_point_red = 5
         self.attack_point_blue = 5
 
+        self.defense_point_red = 5
+        self.defense_point_blue = 5
+
 
     def run(self):
         while True:
@@ -38,6 +41,9 @@ class Game:
 
             # write attack point on the screen
             draw_attack_point(self.screen, self.attack_point_red, self.attack_point_blue)
+
+            # write attack point on the screen
+            draw_defense_point(self.screen, self.defense_point_red, self.defense_point_blue)
 
             # call 'draw_health_point' function
             draw_health_point(self.screen, self.health_red, self.health_blue)
