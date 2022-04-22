@@ -33,28 +33,27 @@ class Game:
                     pygame.quit()
                     sys.exit()
 
-            self.screen.fill("black")
-            # draw rectangle for the islands
-            pygame.draw.rect(self.screen, "red", self.island_red)
-            pygame.draw.rect(self.screen, "blue", self.island_blue)
+                self.screen.fill("black")
+                # draw rectangle for the islands
+                pygame.draw.rect(self.screen, "red", self.island_red)
+                pygame.draw.rect(self.screen, "blue", self.island_blue)
 
-            points(self.defense_point_red, DEFENSE_POINT_BLUE, self.attack_point_red, self.attack_point_blue,
-                   HEALTH_RED, HEALTH_BLUE)
+                # write attack point on the screen
+                draw_attack_point(self.screen, self.attack_point_red, self.attack_point_blue)
 
-            # write attack point on the screen
-            draw_attack_point(self.screen, self.attack_point_red, self.attack_point_blue)
+                # write attack point on the screen
+                draw_defense_point(self.screen, self.defense_point_red, self.defense_point_blue)
 
-            # write attack point on the screen
-            draw_defense_point(self.screen, self.defense_point_red, DEFENSE_POINT_BLUE)
+                # call 'draw_health_point' function
+                draw_health_point(self.screen, HEALTH_RED, HEALTH_BLUE)
 
-            # call 'draw_health_point' function
-            draw_health_point(self.screen, HEALTH_RED, HEALTH_BLUE)
+                # observe events and acts accordingly(still in crashtest)
+                points(self.defense_point_red, self.defense_point_blue, self.attack_point_red, self.attack_point_blue,
+                       HEALTH_RED, HEALTH_BLUE)
 
-            # observe events and acts accordingly(still in crashtest)
+                self.clock.tick(FPS)
 
-            self.clock.tick(FPS)
-
-            pygame.display.update()
+                pygame.display.update()
 
 
 if __name__ == '__main__':
