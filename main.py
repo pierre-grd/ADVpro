@@ -38,6 +38,9 @@ class Game:
             pygame.draw.rect(self.screen, "red", self.island_red)
             pygame.draw.rect(self.screen, "blue", self.island_blue)
 
+            points(self.defense_point_red, DEFENSE_POINT_BLUE, self.attack_point_red, self.attack_point_blue,
+                   HEALTH_RED, HEALTH_BLUE)
+
             # write attack point on the screen
             draw_attack_point(self.screen, self.attack_point_red, self.attack_point_blue)
 
@@ -48,8 +51,6 @@ class Game:
             draw_health_point(self.screen, HEALTH_RED, HEALTH_BLUE)
 
             # observe events and acts accordingly(still in crashtest)
-            points(self.defense_point_red, DEFENSE_POINT_BLUE, self.attack_point_red, self.attack_point_blue,
-                   HEALTH_RED, HEALTH_BLUE)
 
             self.clock.tick(FPS)
 
