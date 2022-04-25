@@ -33,6 +33,10 @@ class Game:
                     pygame.quit()
                     sys.exit()
 
+                elif event.type == pygame.KEYDOWN:
+                    # call 'points' function 
+                    points(event, self)
+
                 self.screen.fill("black")
                 # draw rectangle for the islands
                 pygame.draw.rect(self.screen, "red", self.island_red)
@@ -45,15 +49,11 @@ class Game:
                 draw_defense_point(self.screen, self.defense_point_red, self.defense_point_blue)
 
                 # call 'draw_health_point' function
-                draw_health_point(self.screen, HEALTH_RED, HEALTH_BLUE)
-
-                # observe events and acts accordingly(still in crashtest)
-                points(self.defense_point_red, self.defense_point_blue, self.attack_point_red, self.attack_point_blue,
-                       HEALTH_RED, HEALTH_BLUE)
+                draw_health_point(self.screen, self.health_red, self.health_blue)
 
                 self.clock.tick(FPS)
 
-                pygame.display.update()
+            pygame.display.update()
 
 
 if __name__ == '__main__':
