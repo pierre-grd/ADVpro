@@ -26,6 +26,9 @@ class Game:
         self.defense_point_red = DEFENSE_POINT_RED
         self.defense_point_blue = DEFENSE_POINT_BLUE
 
+        self.player_turn_red = PLAYER_TURN_RED
+        self.player_turn_blue = PLAYER_TURN_BLUE
+
     def run(self):
         while True:
             for event in pygame.event.get():
@@ -34,7 +37,7 @@ class Game:
                     sys.exit()
 
                 elif event.type == pygame.KEYDOWN:
-                    # call 'points' function 
+                    # call 'points' function
                     points(event, self)
 
                 self.screen.fill("black")
@@ -50,6 +53,10 @@ class Game:
 
                 # call 'draw_health_point' function
                 draw_health_point(self.screen, self.health_red, self.health_blue)
+
+                # write player's turn on the screen
+                draw_player_turn(self.screen, self.player_turn_red, self.player_turn_blue)
+
 
                 self.clock.tick(FPS)
 
