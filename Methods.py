@@ -63,7 +63,7 @@ def points(event, self):
         self.player_turn_blue += 1
         print("kup")
     elif event.key == pygame.K_w and self.player_turn_blue == 1:
-        self.attack_point_blue += -1
+        self.attack_point_blue += 1
         self.player_turn_blue -= 1
         self.player_turn_red += 1
     elif event.key == pygame.K_a and self.player_turn_blue == 1:
