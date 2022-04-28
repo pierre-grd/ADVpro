@@ -26,6 +26,9 @@ class Game:
         self.defense_point_red = DEFENSE_POINT_RED
         self.defense_point_blue = DEFENSE_POINT_BLUE
 
+        self.defense_red_activated = DEFENSE_RED_ACTIVATED
+        self.defense_blue_activated = DEFENSE_BLUE_ACTIVATED
+
         self.player_turn_red = PLAYER_TURN_RED
         self.player_turn_blue = PLAYER_TURN_BLUE
 

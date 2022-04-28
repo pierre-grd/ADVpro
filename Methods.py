@@ -41,37 +41,57 @@ def draw_player_turn(screen, player_turn_red, player_turn_blue):
         player_turn_text = health_font.render("Player BLUE, your turn to play ", True, "yellow")
     screen.blit(player_turn_text, (275, 500))
 
-# ajouter une sortie de boucle a chaque input réalisé
 def points(event, self):
     # subtract or add points depending on the key pressed
     if event.key == pygame.K_s and self.player_turn_blue == 1:
+        # player blue : invest in defense
         self.defense_point_blue += 2
         self.player_turn_blue -= 1
         self.player_turn_red += 1
-        # Pour tester si l'input est prit en compte
-        print("s")
-        print(self.defense_point_blue)
-        print(self.player_turn_blue)
-        print(self.player_turn_red)
     elif event.key == pygame.K_DOWN and self.player_turn_red == 1:
+        # player red : invest in defense
         self.defense_point_red += 2
         self.player_turn_red -= 1
         self.player_turn_blue += 1
+    elif event.key == pygame.K_w and self.player_turn_blue == 1:
+        # player blue : invest in attack
+        self.attack_point_blue += 2
+        self.player_turn_blue -= 1
+        self.player_turn_red += 1
     elif event.key == pygame.K_UP and self.player_turn_red == 1:
+        # player red : invest in attack
         self.attack_point_red += 2
         self.player_turn_red -= 1
         self.player_turn_blue += 1
-        print("kup")
-    elif event.key == pygame.K_w and self.player_turn_blue == 1:
-        self.attack_point_blue += 1
-        self.player_turn_blue -= 1
-        self.player_turn_red += 1
     elif event.key == pygame.K_a and self.player_turn_blue == 1:
-        self.health_blue += -1
+        # player blue : attack its opponent
+        if self.defense_red_activated == 1:
+            self.health_red += -self.attack_point_blue + self.defense_point_red
+            self.defense_red_activated -= 1
+            self.player_turn_blue -= 1
+            self.player_turn_red += 1
+        else:
+            self.health_red += -self.attack_point_blue
+            self.player_turn_blue -= 1
+            self.player_turn_red += 1
+    elif event.key == pygame.K_LEFT and self.player_turn_red == 1:
+        # player red : attack its opponent
+        if self.defense_blue_activated == 1:
+            self.health_blue += -self.attack_point_red + self.defense_point_blue
+            self.defense_blue_activated -= 1
+            self.player_turn_red -= 1
+            self.player_turn_blue += 1
+        else:
+            self.health_blue += -self.attack_point_red
+            self.player_turn_red -= 1
+            self.player_turn_blue += 1
+    elif event.key == pygame.K_d and self.player_turn_blue == 1:
+        # player blue : activate defense against opponent's next attack
+        self.defense_blue_activated += 1
         self.player_turn_blue -= 1
         self.player_turn_red += 1
-        print("a")
-    elif event.key == pygame.K_LEFT and self.player_turn_red == 1:
-        self.health_red += -self.attack_point_blue
+    elif event.key == pygame.K_RIGHT and self.player_turn_red == 1:
+        # player red : activate defense against opponent's next attack
+        self.defense_red_activated += 1
         self.player_turn_red -= 1
         self.player_turn_blue += 1
