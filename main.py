@@ -33,7 +33,33 @@ class Game:
         self.player_turn_blue = PLAYER_TURN_BLUE
 
     def run(self):
+        i = 1
         while True:
+            if i <= 24:
+                b_img = pygame.image.load("resources/textures/Background/" + str(i) + ".png")
+                b_img = pygame.transform.scale(b_img, (WIDTH, HEIGHT))
+                self.screen.blit(b_img, (0, 0))
+                i += 1
+            else:
+                i = 1
+            print(i)
+            print(i)
+            # draw rectangle for the islands
+            pygame.draw.rect(self.screen, "red", self.island_red)
+            pygame.draw.rect(self.screen, "blue", self.island_blue)
+
+            # write attack point on the screen
+            draw_attack_point(self.screen, self.attack_point_red, self.attack_point_blue)
+
+            # write attack point on the screen
+            draw_defense_point(self.screen, self.defense_point_red, self.defense_point_blue)
+
+            # call 'draw_health_point' function
+            draw_health_point(self.screen, self.health_red, self.health_blue)
+
+            # write player's turn on the screen
+            draw_player_turn(self.screen, self.player_turn_red, self.player_turn_blue)
+
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
@@ -43,22 +69,8 @@ class Game:
                     # call 'points' function
                     points(event, self)
 
-                self.screen.fill("black")
-                # draw rectangle for the islands
-                pygame.draw.rect(self.screen, "red", self.island_red)
-                pygame.draw.rect(self.screen, "blue", self.island_blue)
+                #Background loop:
 
-                # write attack point on the screen
-                draw_attack_point(self.screen, self.attack_point_red, self.attack_point_blue)
-
-                # write attack point on the screen
-                draw_defense_point(self.screen, self.defense_point_red, self.defense_point_blue)
-
-                # call 'draw_health_point' function
-                draw_health_point(self.screen, self.health_red, self.health_blue)
-
-                # write player's turn on the screen
-                draw_player_turn(self.screen, self.player_turn_red, self.player_turn_blue)
 
 
                 self.clock.tick(FPS)
@@ -69,4 +81,3 @@ class Game:
 if __name__ == '__main__':
     game = Game()
     game.run()
-

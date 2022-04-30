@@ -32,6 +32,7 @@ def draw_defense_point(screen, defense_point_red, defense_point_blue):
     screen.blit(defense_text_red, (500, 155))
     screen.blit(defense_text_blue, (100, 55))
 
+
 def draw_player_turn(screen, player_turn_red, player_turn_blue):
     # write whose player's turn is it
     health_font = pygame.font.SysFont(TEXT_FONT, HEALTH_TEXT_SIZE)
@@ -40,6 +41,7 @@ def draw_player_turn(screen, player_turn_red, player_turn_blue):
     elif player_turn_blue == 1:
         player_turn_text = health_font.render("Player BLUE, your turn to play ", True, "yellow")
     screen.blit(player_turn_text, (275, 500))
+
 
 def points(event, self):
     # subtract or add points depending on the key pressed
@@ -95,3 +97,8 @@ def points(event, self):
         self.defense_red_activated += 1
         self.player_turn_red -= 1
         self.player_turn_blue += 1
+
+
+def turn():
+    for i in range(2, 24):
+        return i
