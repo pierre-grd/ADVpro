@@ -128,5 +128,6 @@ isl8 = pygame.transform.scale(isl_img8, (200, 200))
 isl_img10 = pygame.image.load("resources/textures/Island/ile10.001.png")
 isl10 = pygame.transform.scale(isl_img10, (200, 200))
 
+isl_lvl = (isl0, isl2, isl4, isl6, isl8, isl10)
 
-
+print(isl_lvl[1])

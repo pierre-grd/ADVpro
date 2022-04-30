@@ -48,7 +48,10 @@ class Game:
             #pygame.draw.rect(self.screen, "red", self.island_red)
             #pygame.draw.rect(self.screen, "blue", self.island_blue)
 
-            self.screen.blit(isl0, (100, 150))
+
+
+            self.screen.blit(isl_lvl[0], (70, 190))
+            self.screen.blit(isl_lvl[2], (470, 270))
 
 
             # write attack point on the screen
