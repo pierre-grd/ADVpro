@@ -33,17 +33,18 @@ class Game:
         self.player_turn_blue = PLAYER_TURN_BLUE
 
     def run(self):
-        i = 1
+        b_img = pygame.image.load("resources/textures/Background/1.png")
+        b_img = pygame.transform.scale(b_img, (WIDTH, HEIGHT))
+        i = 0
         while True:
-            if i <= 24:
-                b_img = pygame.image.load("resources/textures/Background/" + str(i) + ".png")
-                b_img = pygame.transform.scale(b_img, (WIDTH, HEIGHT))
-                self.screen.blit(b_img, (0, 0))
-                i += 1
-            else:
-                i = 1
-            print(i)
-            print(i)
+            self.screen.fill((0, 0, 0))
+            self.screen.blit(b_img, (i, 0))
+            self.screen.blit(b_img, (WIDTH + i, 0))
+            if i ==- WIDTH:
+                self.screen.blit(b_img, (WIDTH + i, 0))
+                i = 0
+            i -= 1
+
             # draw rectangle for the islands
             pygame.draw.rect(self.screen, "red", self.island_red)
             pygame.draw.rect(self.screen, "blue", self.island_blue)
@@ -69,9 +70,7 @@ class Game:
                     # call 'points' function
                     points(event, self)
 
-                #Background loop:
-
-
+                # Background loop:
 
                 self.clock.tick(FPS)
 
