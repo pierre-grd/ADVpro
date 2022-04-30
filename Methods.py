@@ -2,6 +2,17 @@ import pygame, sys
 from settings import *
 
 
+def draw_background(screen, b_img, i):
+    screen.fill((0, 0, 0))
+    screen.blit(b_img, (i, 0))
+    screen.blit(b_img, (WIDTH + i, 0))
+    if i == - WIDTH:
+        screen.blit(b_img, (WIDTH + i, 0))
+        i = 0
+    i -= 1
+    print(i)
+
+
 def draw_health_point(screen, health_red, health_blue):
     # write health point on the screen
     health_font = pygame.font.SysFont(TEXT_FONT, HEALTH_TEXT_SIZE)
@@ -98,7 +109,24 @@ def points(event, self):
         self.player_turn_red -= 1
         self.player_turn_blue += 1
 
+#Background image
+b_img = pygame.image.load("resources/textures/Background/1.png")
+b_img = pygame.transform.scale(b_img, (WIDTH, HEIGHT))
 
-def turn():
-    for i in range(2, 24):
-        return i
+#Island image
+
+isl_img0 = pygame.image.load("resources/textures/Island/ile0.001.png")
+isl0 = pygame.transform.scale(isl_img0, (200, 200))
+isl_img2 = pygame.image.load("resources/textures/Island/ile2.001.png")
+isl2 = pygame.transform.scale(isl_img2, (200, 200))
+isl_img4 = pygame.image.load("resources/textures/Island/ile4.001.png")
+isl4 = pygame.transform.scale(isl_img4, (200, 200))
+isl_img6 = pygame.image.load("resources/textures/Island/ile6.001.png")
+isl6 = pygame.transform.scale(isl_img6, (200, 200))
+isl_img8 = pygame.image.load("resources/textures/Island/ile8.001.png")
+isl8 = pygame.transform.scale(isl_img8, (200, 200))
+isl_img10 = pygame.image.load("resources/textures/Island/ile10.001.png")
+isl10 = pygame.transform.scale(isl_img10, (200, 200))
+
+
+

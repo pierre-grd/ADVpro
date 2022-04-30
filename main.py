@@ -33,10 +33,9 @@ class Game:
         self.player_turn_blue = PLAYER_TURN_BLUE
 
     def run(self):
-        b_img = pygame.image.load("resources/textures/Background/1.png")
-        b_img = pygame.transform.scale(b_img, (WIDTH, HEIGHT))
-        i = 0
+        i = 1
         while True:
+            #Background loop
             self.screen.fill((0, 0, 0))
             self.screen.blit(b_img, (i, 0))
             self.screen.blit(b_img, (WIDTH + i, 0))
@@ -46,8 +45,11 @@ class Game:
             i -= 1
 
             # draw rectangle for the islands
-            pygame.draw.rect(self.screen, "red", self.island_red)
-            pygame.draw.rect(self.screen, "blue", self.island_blue)
+            #pygame.draw.rect(self.screen, "red", self.island_red)
+            #pygame.draw.rect(self.screen, "blue", self.island_blue)
+
+            self.screen.blit(isl0, (100, 150))
+
 
             # write attack point on the screen
             draw_attack_point(self.screen, self.attack_point_red, self.attack_point_blue)
