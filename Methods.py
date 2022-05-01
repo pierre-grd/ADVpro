@@ -58,6 +58,7 @@ def points(event, self):
     # subtract or add points depending on the key pressed
     if event.key == pygame.K_s and self.player_turn_blue == 1:
         # player blue : invest in defense
+
         self.defense_point_blue += 2
         self.player_turn_blue -= 1
         self.player_turn_red += 1
@@ -109,11 +110,12 @@ def points(event, self):
         self.player_turn_red -= 1
         self.player_turn_blue += 1
 
-#Background image
+
+# Background image
 b_img = pygame.image.load("resources/textures/Background/1.png")
 b_img = pygame.transform.scale(b_img, (WIDTH, HEIGHT))
 
-#Island image
+# Island image
 
 isl_img0 = pygame.image.load("resources/textures/Island/ile0.001.png")
 isl0 = pygame.transform.scale(isl_img0, (200, 200))
@@ -131,3 +133,19 @@ isl10 = pygame.transform.scale(isl_img10, (200, 200))
 isl_lvl = (isl0, isl2, isl4, isl6, isl8, isl10)
 
 print(isl_lvl[1])
+
+
+def island_level(level):
+    match level:
+        case 0:
+            return 0
+        case 2:
+            return 1
+        case 4:
+            return 2
+        case 6:
+            return 3
+        case 8:
+            return 4
+        case 10:
+            return 5
