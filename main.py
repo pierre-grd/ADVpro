@@ -1,6 +1,7 @@
 import pygame, sys
 from settings import *
 from Methods import *
+from pygame import mixer
 import os
 
 
@@ -35,6 +36,13 @@ class Game:
     def run(self):
         i = 1
         while True:
+            #Track:
+            pygame.mixer.init()
+
+            pygame.mixer.music.load("resources/Adieu Aru - Euphorie.mp3")
+            pygame.mixer.music.play(-1)
+
+
             #Background loop
             self.screen.fill((0, 0, 0))
             self.screen.blit(b_img, (i, 0))

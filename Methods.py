@@ -110,8 +110,11 @@ def points(event, self):
         self.player_turn_red -= 1
         self.player_turn_blue += 1
 
+# Track music
+
 
 # Background image
+
 b_img = pygame.image.load("resources/textures/Background/1.png")
 b_img = pygame.transform.scale(b_img, (WIDTH, HEIGHT))
 
