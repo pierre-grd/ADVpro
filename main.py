@@ -54,7 +54,8 @@ class Game:
 
             self.screen.blit(isl_lvl[island_level(self.attack_point_blue)], (70, 190))
 
-            self.screen.blit(pygame.transform.flip(isl_lvl[2], True, False), (470, 270))
+            self.screen.blit(pygame.transform.flip(isl_lvl[island_level((self.attack_point_red))],
+                                                   True, False), (470, 270))
 
 
             # write attack point on the screen

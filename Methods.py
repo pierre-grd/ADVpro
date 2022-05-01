@@ -138,14 +138,16 @@ print(isl_lvl[1])
 def island_level(level):
     match level:
         case 0:
-            return 0
+            return int(0)
         case 2:
-            return 1
+            return int(1)
         case 4:
-            return 2
+            return int(2)
         case 6:
-            return 3
+            return int(3)
         case 8:
-            return 4
+            return int(4)
         case 10:
-            return 5
+            return int(5)
+
+print(isl_lvl[island_level(2)])
