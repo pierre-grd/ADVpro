@@ -118,17 +118,17 @@ b_img = pygame.transform.scale(b_img, (WIDTH, HEIGHT))
 # Island image
 
 isl_img0 = pygame.image.load("resources/textures/Island/ile0.001.png")
-isl0 = pygame.transform.scale(isl_img0, (200, 200))
+isl0 = pygame.transform.scale(isl_img0, (ISLAND_WIDTH, ISLAND_HEIGHT))
 isl_img2 = pygame.image.load("resources/textures/Island/ile2.001.png")
-isl2 = pygame.transform.scale(isl_img2, (200, 200))
+isl2 = pygame.transform.scale(isl_img2, (ISLAND_WIDTH, ISLAND_HEIGHT))
 isl_img4 = pygame.image.load("resources/textures/Island/ile4.001.png")
-isl4 = pygame.transform.scale(isl_img4, (200, 200))
+isl4 = pygame.transform.scale(isl_img4, (ISLAND_WIDTH, ISLAND_HEIGHT))
 isl_img6 = pygame.image.load("resources/textures/Island/ile6.001.png")
-isl6 = pygame.transform.scale(isl_img6, (200, 200))
+isl6 = pygame.transform.scale(isl_img6, (ISLAND_WIDTH, ISLAND_HEIGHT))
 isl_img8 = pygame.image.load("resources/textures/Island/ile8.001.png")
-isl8 = pygame.transform.scale(isl_img8, (200, 200))
+isl8 = pygame.transform.scale(isl_img8, (ISLAND_WIDTH, ISLAND_HEIGHT))
 isl_img10 = pygame.image.load("resources/textures/Island/ile10.001.png")
-isl10 = pygame.transform.scale(isl_img10, (200, 200))
+isl10 = pygame.transform.scale(isl_img10, (ISLAND_WIDTH, ISLAND_HEIGHT))
 
 isl_lvl = (isl0, isl2, isl4, isl6, isl8, isl10)
 

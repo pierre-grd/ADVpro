@@ -44,18 +44,11 @@ class Game:
                 i = 0
             i -= 1
 
-            # draw rectangle for the islands
-            #pygame.draw.rect(self.screen, "red", self.island_red)
-            #pygame.draw.rect(self.screen, "blue", self.island_blue)
-
-
-
-
-
-            self.screen.blit(isl_lvl[island_level(self.attack_point_blue)], (70, 190))
+            # drawing islands
+            self.screen.blit(isl_lvl[island_level(self.attack_point_blue)], (60, 190))
 
             self.screen.blit(pygame.transform.flip(isl_lvl[island_level((self.attack_point_red))],
-                                                   True, False), (470, 270))
+                                                   True, False), (490, 270))
 
 
             # write attack point on the screen
