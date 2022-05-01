@@ -10,7 +10,7 @@ class Game:
         pygame.init()
         self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
         self.clock = pygame.time.Clock()
-        pygame.display.set_caption("Advanced Programming Project - 2022")
+        pygame.display.set_caption("ISLAND WAR")
 
         self.island_red = pygame.Rect(500, 200, ISLAND_WIDTH, ISLAND_HEIGHT)
         self.island_blue = pygame.Rect(100, 100, ISLAND_WIDTH, ISLAND_HEIGHT)
@@ -33,31 +33,30 @@ class Game:
         self.player_turn_red = PLAYER_TURN_RED
         self.player_turn_blue = PLAYER_TURN_BLUE
 
+        self.index_red = index_red
+        self.index_blue = index_blue
+
     def run(self):
         i = 1
+        # Track:
+        # pygame.mixer.init()
+        # pygame.mixer.music.load("resources/Adieu Aru - Euphorie.mp3")
+        # pygame.mixer.music.play(-1)
+
         while True:
-            #Track:
-            pygame.mixer.init()
-
-            pygame.mixer.music.load("resources/Adieu Aru - Euphorie.mp3")
-            pygame.mixer.music.play(-1)
-
-
-            #Background loop
+            # Background loop
             self.screen.fill((0, 0, 0))
             self.screen.blit(b_img, (i, 0))
             self.screen.blit(b_img, (WIDTH + i, 0))
-            if i ==- WIDTH:
+            if i == - WIDTH:
                 self.screen.blit(b_img, (WIDTH + i, 0))
                 i = 0
             i -= 1
 
             # drawing islands
-            self.screen.blit(isl_lvl[island_level(self.attack_point_blue)], (60, 190))
-
+            self.screen.blit(isl_lvl[island_level(self.attack_point_blue)], (60, 220))
             self.screen.blit(pygame.transform.flip(isl_lvl[island_level((self.attack_point_red))],
-                                                   True, False), (490, 270))
-
+                                                   True, False), (600, 220))
 
             # write attack point on the screen
             draw_attack_point(self.screen, self.attack_point_red, self.attack_point_blue)
@@ -70,6 +69,13 @@ class Game:
 
             # write player's turn on the screen
             draw_player_turn(self.screen, self.player_turn_red, self.player_turn_blue)
+
+         ##  if self.health_red <= 0:
+          #      self.player_turn_blue = 0
+            #    self.index_blue = 3
+          #  elif self.health_blue <= 0:
+           #     self.player_turn_red = 0
+             ##   self.index_red = 2##
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
