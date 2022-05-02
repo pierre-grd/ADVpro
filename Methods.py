@@ -50,13 +50,13 @@ def draw_player_turn(screen, player_turn_red, player_turn_blue):
     if player_turn_red == 1:
         player_turn_text = health_font.render(Main_text[index_red], True, color_main_txt[0])
     elif player_turn_blue == 1:
-        player_turn_text = health_font.render(Main_text[index_red], True, color_main_txt[1])
-    screen.blit(player_turn_text, (HEIGHT / 2, 650))
+        player_turn_text = health_font.render(Main_text[index_blue], True, color_main_txt[1])
+    screen.blit(player_turn_text, (HEIGHT / 2, 630))
 
 
-Main_text = ("It's Player Red turn", "It's Player Blue turn", "Player Red WON !", "Player Blue WON !")
-index_red = 0
+Main_text = ("It's Player Red turn", "It's Player Blue turn")
 index_blue = 1
+index_red = 0
 
 
 def points(event, self):
@@ -157,6 +157,3 @@ def island_level(level):
             return int(4)
         case 10:
             return int(5)
-
-
-print(isl_lvl[island_level(2)])

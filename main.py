@@ -39,9 +39,9 @@ class Game:
     def run(self):
         i = 1
         # Track:
-        # pygame.mixer.init()
-        # pygame.mixer.music.load("resources/Adieu Aru - Euphorie.mp3")
-        # pygame.mixer.music.play(-1)
+        pygame.mixer.init()
+        pygame.mixer.music.load("resources/Adieu Aru - Euphorie.mp3")
+        pygame.mixer.music.play(-1)
 
         while True:
             # Background loop
@@ -51,8 +51,8 @@ class Game:
             if i == - WIDTH:
                 self.screen.blit(b_img, (WIDTH + i, 0))
                 i = 0
-            i -= 1
 
+            i -= 1
             # drawing islands
             self.screen.blit(isl_lvl[island_level(self.attack_point_blue)], (60, 220))
             self.screen.blit(pygame.transform.flip(isl_lvl[island_level((self.attack_point_red))],
@@ -69,13 +69,6 @@ class Game:
 
             # write player's turn on the screen
             draw_player_turn(self.screen, self.player_turn_red, self.player_turn_blue)
-
-         ##  if self.health_red <= 0:
-          #      self.player_turn_blue = 0
-            #    self.index_blue = 3
-          #  elif self.health_blue <= 0:
-           #     self.player_turn_red = 0
-             ##   self.index_red = 2##
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
