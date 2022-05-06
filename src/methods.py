@@ -65,10 +65,10 @@ def draw_winner(screen, health_red, health_blue):
     winner_text_font = pygame.font.SysFont(TEXT_FONT, 50)
     if health_red <= 0:
         winner_text = winner_text_font.render(
-            "The player Red won !!",True, "red")
+            "The player Blue won !!",True, "red")
     elif health_blue <= 0:
         winner_text = winner_text_font.render(
-            "The player Blue won !!", True, "blue")
+            "The player Red won !!", True, "blue")
 
     screen.blit(winner_text, (250, 275))
     pygame.display.update()
