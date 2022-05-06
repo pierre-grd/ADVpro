@@ -98,7 +98,7 @@ def blue_points(event, self):
         self.player_turn_blue -= 1
         self.player_turn_red += 1
 
-    elif event.key == pygame.K_a and self.player_turn_blue == 1:
+    elif event.key == pygame.K_d and self.player_turn_blue == 1:
         # player blue : attack its opponent
         if self.defense_red_activated == 1:
             self.health_red += -self.attack_point_blue + self.defense_point_red
@@ -110,7 +110,7 @@ def blue_points(event, self):
             self.player_turn_blue -= 1
             self.player_turn_red += 1
 
-    elif event.key == pygame.K_d and self.player_turn_blue == 1:
+    elif event.key == pygame.K_a and self.player_turn_blue == 1:
         # player blue : activate defense against opponent's next attack
         self.defense_blue_activated += 1
         self.player_turn_blue -= 1
