@@ -40,7 +40,8 @@ The player (blue) on the left side of the screen has the keys "w", "a", "s" and 
 │
 ├── ressources
 │   └──textures           
-│   └──Adieu Aru - Ephorie.pm3
+│   └──Adieu Aru - Ephorie.mp3
+│
 ├── ressources
 │   └──settings.py   
 │   └──methods.py  
