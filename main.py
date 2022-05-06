@@ -36,7 +36,10 @@ class Game:
         self.index_red = index_red
         self.index_blue = index_blue
 
+        self.choice_game = CHOICE_GAME
+        self.random_activated = random_activated
 
+        self.winner_text = winner_text
 
 
 
@@ -74,8 +77,13 @@ class Game:
             # write player's turn on the screen
             draw_player_turn(self.screen, self.player_turn_red, self.player_turn_blue)
 
-            machine_choice = ai(self.player_turn_red)
-            red_points(machine_choice, self)
+            if self.choice_game == 0:
+                # write first choice of type of game on the screen
+                draw_opening_question(self.screen, self.choice_game)
+
+            if self.health_red <= 0 or self.health_blue <= 0:
+                draw_winner(self.screen, self.health_red, self.health_blue)
+                break
 
             for event in pygame.event.get():
 
@@ -83,8 +91,20 @@ class Game:
                     pygame.quit()
                     sys.exit()
 
-                elif event.type == pygame.KEYDOWN:
-                    blue_points(event, self)
+                elif self.choice_game == 0:
+                    if event.type == pygame.KEYDOWN:
+                        choice_type_game(event, self)
+
+                elif self.choice_game == 1:
+                    machine_choice = ai(self.player_turn_red, self.random_activated)
+                    red_points_random(machine_choice, self)
+                    if event.type == pygame.KEYDOWN:
+                        blue_points(event, self)
+
+                elif self.choice_game == 2:
+                    if event.type == pygame.KEYDOWN:
+                        blue_points(event, self)
+                        red_points(event, self)
 
 
                 # Background loop:

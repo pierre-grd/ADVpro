@@ -53,6 +53,33 @@ def draw_player_turn(screen, player_turn_red, player_turn_blue):
         player_turn_text = health_font.render(Main_text[index_blue], True, color_main_txt[1])
     screen.blit(player_turn_text, (HEIGHT / 2, 630))
 
+def draw_opening_question(screen, choice_game):
+    opening_question_font = pygame.font.SysFont(TEXT_FONT, QUESTION_TEXT_SIZE)
+    if choice_game == 0:
+        question_text_red = opening_question_font.render(
+            "Choose whether it is player against computer(press 1) or player against player (press 2) ",
+        True, "white")
+    screen.blit(question_text_red, (150, 75))
+
+def draw_winner(screen, health_red, health_blue):
+    winner_text_font = pygame.font.SysFont(TEXT_FONT, 50)
+    if health_red <= 0:
+        winner_text = winner_text_font.render(
+            "The player Red won !!",True, "red")
+    elif health_blue <= 0:
+        winner_text = winner_text_font.render(
+            "The player Blue won !!", True, "blue")
+
+    screen.blit(winner_text, (150, 275))
+    pygame.time.delay(5000)
+
+def choice_type_game(event, self):
+    if event.key == pygame.K_1 and self.choice_game == 0:
+        self.random_activated = 1
+        self.choice_game = 1
+    elif event.key == pygame.K_2 and self.choice_game == 0:
+        self.random_activated = 0
+        self.choice_game = 2
 
 def blue_points(event, self):
     # subtract or add points depending on the key pressed
@@ -89,8 +116,42 @@ def blue_points(event, self):
         self.player_turn_blue -= 1
         self.player_turn_red += 1
 
+def red_points(event, self):
+    # subtract or add points depending on the key pressed
+    if event.key == pygame.K_DOWN and self.player_turn_red == 1 and self.defense_point_red < 10:
+        # player blue : invest in defense
+        def_minus = random.randint(3, 4)
+        self.defense_point_red += def_minus
+        self.player_turn_red -= 1
+        self.player_turn_blue += 1
+        if self.defense_point_red > 10:
+            self.defense_point_red = 10
 
-def red_points(random_event, self):
+    elif event.key == pygame.K_UP and self.player_turn_red == 1 and self.attack_point_red != 10:
+        # player blue : invest in attack
+        self.attack_point_red += 2
+        self.player_turn_red -= 1
+        self.player_turn_blue += 1
+
+    elif event.key == pygame.K_LEFT and self.player_turn_red == 1:
+        # player blue : attack its opponent
+        if self.defense_blue_activated == 1:
+            self.health_red += -self.attack_point_red + self.defense_point_blue
+            self.defense_blue_activated -= 1
+            self.player_turn_red -= 1
+            self.player_turn_blue += 1
+        else:
+            self.health_blue += -self.attack_point_red
+            self.player_turn_red -= 1
+            self.player_turn_blue += 1
+
+    elif event.key == pygame.K_RIGHT and self.player_turn_red == 1:
+        # player blue : activate defense against opponent's next attack
+        self.defense_red_activated += 1
+        self.player_turn_red -= 1
+        self.player_turn_blue += 1
+
+def red_points_random(random_event, self):
     if random_event == pygame.K_DOWN and self.player_turn_red == 1 and self.defense_point_red != 10:
         # player red : invest in defense
         def_minus = random.randint(3, 4)
@@ -124,9 +185,9 @@ def red_points(random_event, self):
         self.player_turn_blue += 1
 
 
-def ai(player_turn_red):
+def ai(player_turn_red, random_activated):
     key_list = [pygame.K_RIGHT, pygame.K_LEFT, pygame.K_UP, pygame.K_DOWN]
-    if player_turn_red == 1:
+    if player_turn_red == 1 and random_activated == 1:
         random_key = random.choice(key_list)
         return random_key
 

@@ -17,6 +17,12 @@ TEXT_FONT = "Avenir"
 HEALTH_TEXT_SIZE = 35
 ATTACK_TEXT_SIZE = 30
 DEFENSE_TEXT_SIZE = 30
+QUESTION_TEXT_SIZE = 20
+
+CHOICE_GAME = 0
+random_activated = 0
+
+winner_text = ""
 
 # Variables :
 
