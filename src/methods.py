@@ -56,11 +56,14 @@ def draw_player_turn(screen, player_turn_red, player_turn_blue):
 
 def blue_points(event, self):
     # subtract or add points depending on the key pressed
-    if event.key == pygame.K_s and self.player_turn_blue == 1 and self.defense_point_blue != 10:
+    if event.key == pygame.K_s and self.player_turn_blue == 1 and self.defense_point_blue < 10:
         # player blue : invest in defense
-        self.defense_point_blue += 2
+        def_minus = random.randint(3,4)
+        self.defense_point_blue += def_minus
         self.player_turn_blue -= 1
         self.player_turn_red += 1
+        if self.defense_point_blue > 10:
+            self.defense_point_blue = 10
 
     elif event.key == pygame.K_w and self.player_turn_blue == 1 and self.attack_point_blue != 10:
         # player blue : invest in attack
@@ -90,9 +93,12 @@ def blue_points(event, self):
 def red_points(random_event, self):
     if random_event == pygame.K_DOWN and self.player_turn_red == 1 and self.defense_point_red != 10:
         # player red : invest in defense
-        self.defense_point_red += 2
+        def_minus = random.randint(3, 4)
+        self.defense_point_red += def_minus
         self.player_turn_red -= 1
         self.player_turn_blue += 1
+        if self.defense_point_red > 10:
+            self.defense_point_red = 10
     elif random_event == pygame.K_UP and self.player_turn_red == 1 and self.attack_point_red != 10:
         # player red : invest in attack
         self.attack_point_red += 2
