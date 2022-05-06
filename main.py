@@ -1,6 +1,5 @@
 import pygame, sys
-from settings import *
-from Methods import *
+from src.methods import *
 from pygame import mixer
 import os
 
@@ -8,9 +7,10 @@ import os
 class Game:
     def __init__(self):
         pygame.init()
+        pygame.display.set_caption("ISLAND WAR")
         self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
         self.clock = pygame.time.Clock()
-        pygame.display.set_caption("ISLAND WAR")
+
 
         self.island_red = pygame.Rect(500, 200, ISLAND_WIDTH, ISLAND_HEIGHT)
         self.island_blue = pygame.Rect(100, 100, ISLAND_WIDTH, ISLAND_HEIGHT)
@@ -35,6 +35,10 @@ class Game:
 
         self.index_red = index_red
         self.index_blue = index_blue
+
+
+
+
 
     def run(self):
         i = 1
@@ -70,14 +74,18 @@ class Game:
             # write player's turn on the screen
             draw_player_turn(self.screen, self.player_turn_red, self.player_turn_blue)
 
+            machine_choice = ai(self.player_turn_red)
+            red_points(machine_choice, self)
+
             for event in pygame.event.get():
+
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
 
                 elif event.type == pygame.KEYDOWN:
-                    # call 'points' function
-                    points(event, self)
+                    blue_points(event, self)
+
 
                 # Background loop:
 
