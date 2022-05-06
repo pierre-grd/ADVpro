@@ -59,7 +59,7 @@ def draw_opening_question(screen, choice_game):
         question_text_red = opening_question_font.render(
             "Choose whether it is player against computer(press 1) or player against player (press 2) ",
         True, "white")
-    screen.blit(question_text_red, (150, 75))
+    screen.blit(question_text_red, (120, 75))
 
 def draw_winner(screen, health_red, health_blue):
     winner_text_font = pygame.font.SysFont(TEXT_FONT, 50)
@@ -70,7 +70,8 @@ def draw_winner(screen, health_red, health_blue):
         winner_text = winner_text_font.render(
             "The player Blue won !!", True, "blue")
 
-    screen.blit(winner_text, (150, 275))
+    screen.blit(winner_text, (250, 275))
+    pygame.display.update()
     pygame.time.delay(5000)
 
 def choice_type_game(event, self):
