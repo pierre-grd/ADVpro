@@ -1,7 +1,6 @@
-import pygame, sys
 from src.settings import *
 import random
-import time
+
 
 def draw_background(screen, b_img, i):
     """
