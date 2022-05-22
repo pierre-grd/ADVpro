@@ -17,19 +17,7 @@
 
 ## Abstract
 
-At each turn, the player will have to make choices for his island. 
-He has four possibilities: 
-- He can decide to defend his island against the opponent's attack.
-  - Keys "d" or "right"
-- He can decide to attack the opponent.
-  - Keys "a" or "left"
-- He can decide to invest on his island's defense structure.
-  - Keys "s" or "down"
-- He can decide to invest on his island's attack materials. 
-  - Keys "w" or "up"
-
-The player (red) on the right side of the screen has the keys "up", "down", "left" and "right". <br>
-The player (blue) on the left side of the screen has the keys "w", "a", "s" and "d". 
+...
 
 # Project structure
 
@@ -48,4 +36,50 @@ The player (blue) on the left side of the screen has the keys "w", "a", "s" and 
 │
 ├── main.py
 
+```
+
+# Install our code and run project
+
+1) Clone Project
+```
+git clone https://github.com/pierre-grd/ADVpro.git
+```
+
+2) Go into project folder
+
+```
+cd ADVpro
+```
+
+3) Create your virtual environment
+
+
+```
+python -m venv venv
+```
+
+
+4) Enter in your environment
+
+Linux / OSX
+
+```
+source venv/bin/activate venv venv
+```
+
+Windows
+
+```
+.\venv\Scripts\activate
+```
+
+5) Install Libraries
+```
+pip3 install -r requirements.txt or pip install -r requirements.txt
+```
+
+6) Run project
+
+```
+python main.py
 ```
