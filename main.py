@@ -40,6 +40,7 @@ class Game:
         self.random_activated = random_activated
 
         self.winner_text = winner_text
+        self.winner_dummy = winnder_dummy
 
 
 
@@ -64,26 +65,26 @@ class Game:
             self.screen.blit(isl_lvl[island_level(self.attack_point_blue)], (60, 220))
             self.screen.blit(pygame.transform.flip(isl_lvl[island_level((self.attack_point_red))],
                                                    True, False), (600, 220))
+            if self.health_red <= 0 or self.health_blue <= 0:
+                draw_winner(self.screen, self.health_red, self.health_blue)
+                break
 
-            # write attack point on the screen
-            draw_attack_point(self.screen, self.attack_point_red, self.attack_point_blue)
+            else:
+                # write attack point on the screen
+                draw_attack_point(self.screen, self.attack_point_red, self.attack_point_blue)
 
-            # write attack point on the screen
-            draw_defense_point(self.screen, self.defense_point_red, self.defense_point_blue)
+                # write attack point on the screen
+                draw_defense_point(self.screen, self.defense_point_red, self.defense_point_blue)
 
-            # call 'draw_health_point' function
-            draw_health_point(self.screen, self.health_red, self.health_blue)
+                # call 'draw_health_point' function
+                draw_health_point(self.screen, self.health_red, self.health_blue)
 
-            # write player's turn on the screen
-            draw_player_turn(self.screen, self.player_turn_red, self.player_turn_blue)
+                # write player's turn on the screen
+                draw_player_turn(self.screen, self.player_turn_red, self.player_turn_blue)
 
             if self.choice_game == 0:
                 # write first choice of type of game on the screen
                 draw_opening_question(self.screen, self.choice_game)
-
-            if self.health_red <= 0 or self.health_blue <= 0:
-                draw_winner(self.screen, self.health_red, self.health_blue)
-                break
 
             for event in pygame.event.get():
 

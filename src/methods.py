@@ -62,7 +62,7 @@ def draw_player_turn(screen, player_turn_red, player_turn_blue):
         player_turn_text = health_font.render(Main_text[index_red], True, color_main_txt[0])
     elif player_turn_blue == 1:
         player_turn_text = health_font.render(Main_text[index_blue], True, color_main_txt[1])
-    screen.blit(player_turn_text, (HEIGHT / 2, 630))
+    screen.blit(player_turn_text, (HEIGHT / (5/2), WIDTH / 2))
 
 def draw_opening_question(screen, choice_game):
     """

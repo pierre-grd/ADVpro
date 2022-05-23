@@ -26,6 +26,7 @@ CHOICE_GAME = 0
 random_activated = 0
 
 winner_text = ""
+winnder_dummy = 0
 
 ## Initial points :
 HEALTH_RED = 100
